@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 
 const BASE_URL = 'https://example.com';
 const SITE_NAME = 'Benoit CABOCEL Portfolio';
+const SITE_ALIAS = '@portfolio_benoit_cabocel';
 
 const fr = {
 	description: '',
@@ -36,10 +37,10 @@ const siteMetadata: Record<Locale, Metadata> = {
 		},
 		twitter: {
 			card: 'summary_large_image',
-			site: '@transcendence_survivors',
+			site: SITE_ALIAS,
 			title: SITE_NAME,
 			description: fr.description,
-			creator: '@transcendence_survivors',
+			creator: SITE_ALIAS,
 			images: [
 				{
 					url: `${BASE_URL}/static/og-image-fr.jpg`,
@@ -73,10 +74,10 @@ const siteMetadata: Record<Locale, Metadata> = {
 		},
 		twitter: {
 			card: 'summary_large_image',
-			site: '@transcendence_survivors',
+			site: SITE_ALIAS,
 			title: SITE_NAME,
 			description: en.description,
-			creator: '@transcendence_survivors',
+			creator: SITE_ALIAS,
 			images: [
 				{
 					url: `${BASE_URL}/static/og-image-en.jpg`,

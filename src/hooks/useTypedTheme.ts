@@ -1,18 +1,23 @@
 'use client';
-
 import { useTheme } from 'next-themes';
-import { Theme } from '@/constants/themes';
+import { ResolvedTheme } from '@/constants/themes';
+import useIsMounted from './useIsMounted';
 
-type TypedTheme = Theme | undefined;
+const themeIcons: Record<ResolvedTheme, string> = {
+	light: '🌞',
+	dark: '🌜',
+} as const;
 
-const useTypedTheme = () => {
-	const { theme, resolvedTheme, setTheme } = useTheme();
+export default function useTypedTheme() {
+	const { theme, setTheme } = useTheme();
+	const isMounted = useIsMounted();
+
+	const safeTheme: ResolvedTheme =
+		isMounted && theme ? (theme as ResolvedTheme) : 'light';
 
 	return {
-		theme: theme as TypedTheme,
-		resolvedTheme: resolvedTheme as TypedTheme,
-		setTheme: (theme: Theme) => setTheme(theme),
+		theme: safeTheme,
+		themeIcon: themeIcons[safeTheme],
+		setTheme: (newTheme: ResolvedTheme) => setTheme(newTheme),
 	};
-};
-
-export default useTypedTheme;
+}

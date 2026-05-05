@@ -4,7 +4,7 @@ import * as React from 'react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { THEMES, DEFAULT_THEME } from '@/constants/themes';
 
-if (typeof window !== 'undefined' && process.env?.NODE_ENV === 'development') {
+if (typeof window !== 'undefined') {
 	const orig = console.error;
 	console.error = (...args: unknown[]) => {
 		if (typeof args[0] === 'string' && args[0].includes('Encountered a script tag'))
