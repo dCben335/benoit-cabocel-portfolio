@@ -6,8 +6,9 @@
 			"role": "Développeur Full Stack",
 			"cta": "Voir mon travail"
 		},
-		"title": "Accueil",
-		"description": "Bienvenue sur mon site web personnel ! Je suis un développeur logiciel passionné avec une expérience dans diverses technologies. Ici, vous pouvez trouver des informations sur mes projets, compétences et coordonnées. N'hésitez pas à explorer et à me contacter !"
+		"projects": {
+			"title": "Projets phares"
+		}
 	},
 	"theme": {
 		"ariaLabel": "Basculer le thème"
@@ -17,6 +18,6 @@
 			"en": "EN",
 			"fr": "FR"
 		},
-		"ariaLabel": "Toggle language"
+		"ariaLabel": "Basculer la langue"
 	}
 }

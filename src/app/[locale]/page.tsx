@@ -1,6 +1,7 @@
 import LocaleSwitcher from '@/components/features/LocaleSwitcher';
 import ThemeSwitcher from '@/components/features/ThemeSwitcher';
 import Hero from '@/components/sections/Hero';
+import Projects from '@/components/sections/Projects';
 import { useTranslations } from 'next-intl';
 
 export default function Home() {
@@ -14,7 +15,8 @@ export default function Home() {
 					<LocaleSwitcher />
 				</div>
 			</nav>
-			<Hero />
+			<Hero className='pt-32 pb-16' />
+			<Projects />
 		</main>
 	);
 }

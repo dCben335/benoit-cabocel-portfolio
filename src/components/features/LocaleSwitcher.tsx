@@ -1,10 +1,10 @@
 'use client';
 
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { Button } from '../ui/button';
 import { AppMessages } from '@/i18n/types';
 import { Locale } from '@/constants/locales';
-import { usePathname, useRouter } from '@/i18n/navigation';
+import useLocaleParams from '@/hooks/useLocaleParams';
 
 interface LocaleSwitcherProps extends React.ComponentPropsWithoutRef<typeof Button> {}
 
@@ -18,21 +18,14 @@ const localeToKey = {
 
 const LocaleSwitcher = ({ ...props }: LocaleSwitcherProps) => {
 	const t = useTranslations('locales');
-	const locale = useLocale() as Locale;
-	const pathname = usePathname();
-	const router = useRouter();
-
-	const changeLocale = () => {
-		const newLocale = locale === 'en' ? 'fr' : 'en';
-		router.replace(pathname, { locale: newLocale });
-	};
+	const { locale, nextLocale, updateLocale } = useLocaleParams();
 
 	return (
 		<Button
 			variant='outline'
 			size='icon'
 			aria-label={t('ariaLabel')}
-			onClick={changeLocale}
+			onClick={() => updateLocale(nextLocale)}
 			{...props}>
 			{t(`switcher.${localeToKey[locale]}`)}
 		</Button>

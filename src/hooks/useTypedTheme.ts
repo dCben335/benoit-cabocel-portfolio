@@ -1,4 +1,5 @@
 'use client';
+
 import { useTheme } from 'next-themes';
 import { ResolvedTheme } from '@/constants/themes';
 import useIsMounted from './useIsMounted';
@@ -15,9 +16,12 @@ export default function useTypedTheme() {
 	const safeTheme: ResolvedTheme =
 		isMounted && theme ? (theme as ResolvedTheme) : 'light';
 
+	const nextTheme: ResolvedTheme = safeTheme === 'light' ? 'dark' : 'light';
+
 	return {
 		theme: safeTheme,
 		themeIcon: themeIcons[safeTheme],
 		setTheme: (newTheme: ResolvedTheme) => setTheme(newTheme),
+		nextTheme,
 	};
 }

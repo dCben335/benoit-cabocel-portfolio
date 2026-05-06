@@ -8,10 +8,10 @@ interface ThemeSwitcherProps extends React.ComponentPropsWithoutRef<typeof Butto
 
 const ThemeSwitcher = ({ ...props }: ThemeSwitcherProps) => {
 	const t = useTranslations('theme');
-	const { theme, themeIcon, setTheme } = useTypedTheme();
+	const { nextTheme, themeIcon, setTheme } = useTypedTheme();
 
 	const toggleTheme = () => {
-		setTheme(theme === 'light' ? 'dark' : 'light');
+		setTheme(nextTheme);
 	};
 
 	return (
